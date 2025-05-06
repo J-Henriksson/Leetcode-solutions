@@ -1,7 +1,7 @@
 from typing import List
 
-#Runtime: Beats 100% Memory: Beats 49.92%
 class PlusOne():
+    #Runtime: Beats 100% Memory: Beats 49.92%
     def plus_one(self, digits: List[int]) -> List[int]:
         index = len(digits) - 1
         result = digits[index] + 1
