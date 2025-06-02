@@ -5,6 +5,10 @@ class ListNode():
 
 class MergeTwoLists(object):
     def merge_two_lists(self, list1: ListNode, list2: ListNode) -> ListNode:
+        if list1 == None:
+            return list2
+        elif list2 == None:
+            return list1
         if list1.val > list2.val:
             current_root = list2
             left = list1
