@@ -1,4 +1,4 @@
-from ...Algorithms.binary_tree import BinaryTreeNode, BinaryTree
+from ...Data_structures.binary_tree import BinaryTreeNode, BinaryTree
 
 class InvertTree():
     def invert_tree(self, root: BinaryTreeNode):
