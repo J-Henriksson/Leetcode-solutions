@@ -1,6 +1,6 @@
 from typing import List
 
-class houseRobber2():
+class HouseRobber2():
     def rob_line(self, nums: List[int]) -> int:
         #Same as max step money problem, but without a limit on how big steps you can take.
         #Create a list were each index as the max amount that can be stolen if you start from that house.
