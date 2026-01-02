@@ -1,34 +1,24 @@
 from typing import List
-
 class PlusOne():
-    #Runtime: Beats 100% Memory: Beats 49.92%
+    
     def plus_one(self, digits: List[int]) -> List[int]:
-        index = len(digits) - 1
-        result = digits[index] + 1
-
-        digits[index] = result
-
-        while result >= 10:
-            digits[index] = result % 10
-            index -= 1
-            if index < 0:
-                digits.insert(0, 1)
-                result = 0
+        digits[len(digits) - 1] += 1
+        
+        for i in range(len(digits) -1, -1, -1):
+            if digits[i] < 10:
+                break
+            digits[i] %= 10
+            if i == 0:
+                digits.insert(0,1)
             else:
-                result = digits[index] + 1
-                digits[index] = result
+                digits[i - 1] += 1            
+        
         return digits
-
-
+    
+    
 if __name__ == "__main__":
-    plus_one = PlusOne()
-
-    test_1 = [1,2,3]
-    test_2 = [9]
-    test_3 = [9, 9, 9]
-
-    print(plus_one.plus_one(test_1))
-    print(plus_one.plus_one(test_2))
-    print(plus_one.plus_one(test_3))
-
-
+    adder = PlusOne()
+    digits = [1, 2, 9]
+    digits_2 = [9, 9, 9]
+    print(adder.plus_one(digits))
+    print(adder.plus_one(digits_2))
