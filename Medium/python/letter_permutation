@@ -1,0 +1,46 @@
+from typing import List
+
+class LetterPermutation():
+    
+    """
+    Strategy:
+    Solve it recursively, loop through each char, if letter: run two recursive calls for uppercase and lowercase permutation. This repeats until we reach
+    the end.
+    """
+    def letter_permute(self, s: str) -> List[str]:
+        self.combs = []
+        self.dfs(0, s)
+        return self.combs
+    
+    def dfs(self, pos: int, s: str):
+        if pos == len(s):
+            self.combs.append(s[:])
+            return
+        
+        for i in range(pos, len(s)):
+            if s[i].isalpha():
+                temp = s[i]
+                self.dfs(i + 1, s)
+                
+                if s[i] == s[i].upper():
+                    s = s[:i] + s[i].lower() + s[i+1:]
+                    self.dfs(i + 1, s)
+                else:
+                    s = s[:i] + s[i].upper() + s[i+1:]
+                    print("low")
+                    self.dfs(i + 1, s)
+                s = s[:i] + temp + s[i+1:]
+                break
+            if i == len(s) - 1:
+                self.combs.append(s[:])
+    
+    
+    
+    
+                
+                
+
+if __name__ == "__main__":
+    permuter = LetterPermutation()
+    s = "abc"
+    print(permuter.letter_permute(s))
